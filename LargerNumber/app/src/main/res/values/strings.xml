@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Larger Number</string>
+    <string name="user_points">Your points : %d</string>
+    <string name="game_level">Level %d out of %d</string>
+    <string name="game_finished_text">Game Finished!</string>
+</resources>
