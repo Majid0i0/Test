@@ -55,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
 
         generateOneLevel();
         gameInProgress=true;
+        generateOneLevel();
     }
     private void configureViews(){
         points.setText(getString(R.string.user_points,0));
@@ -113,6 +114,12 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
         gameLevelInt++;
+        if (gameLevelInt==GAME_LEVEL_COUNT){
+            gameLevel.setText(getString(R.string.game_finished_text));
+            return;
+        }
+        gameLevelInt++;
+        gameLevel.setText(getString(R.string.game_level,gameLevelInt,GAME_LEVEL_COUNT));
 
         rightNumberInt=generateInt();
         leftNumberInt= generateInt();
