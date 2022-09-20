@@ -3,6 +3,7 @@ package com.example.largernumber;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private int rightNumberInt;
     private int gameLevelInt=0;
     private int pointsInt=0;
+    private boolean gameInProgress=false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +35,26 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         findViews();
         configureViews();
+
+        CountDownTimer countDownTimer=new CountDownTimer(10000,1000) {
+            @Override
+            public void onTick(long remainingTime) {
+//                gameLevel.setText(getString(R.string.game_level,gameLevelInt,GAME_LEVEL_COUNT));
+                gameLevel.setText(getString(R.string.remaining_time,(int)remainingTime/1000));
+
+            }
+
+            @Override
+            public void onFinish() {
+                gameInProgress=false;
+                gameLevel.setText(getString(R.string.game_finished_text));
+            }
+        };
+
+        countDownTimer.start();
+
         generateOneLevel();
+        gameInProgress=true;
     }
     private void configureViews(){
         points.setText(getString(R.string.user_points,0));
@@ -57,6 +78,9 @@ public class MainActivity extends AppCompatActivity {
         });
     }
     private void evaluateAndContinueGame(int whatPressed){
+        if(gameInProgress==false){
+            return;
+        }
         evaluate(whatPressed);
 //        points.setText(String.valueOf("Your points: "+pointsInt));
         points.setText(getString(R.string.user_points,pointsInt));
@@ -85,12 +109,10 @@ public class MainActivity extends AppCompatActivity {
         gameLevel=(TextView) findViewById(R.id.game_level);
     }
     private void generateOneLevel(){
-        if (gameLevelInt==GAME_LEVEL_COUNT){
-            gameLevel.setText(getString(R.string.game_finished_text));
+        if (gameInProgress==false){
             return;
         }
         gameLevelInt++;
-        gameLevel.setText(getString(R.string.game_level,gameLevelInt,GAME_LEVEL_COUNT));
 
         rightNumberInt=generateInt();
         leftNumberInt= generateInt();
