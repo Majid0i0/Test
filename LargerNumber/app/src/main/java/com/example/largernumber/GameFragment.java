@@ -2,6 +2,7 @@ package com.example.largernumber;
 
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -60,6 +61,8 @@ public class GameFragment extends Fragment {
             public void onFinish() {
                 gameInProgress=false;
                 gameLevel.setText(getString(R.string.game_finished_text));
+
+                updateHighScore();
             }
         };
         countDownTimer.start();
@@ -67,6 +70,15 @@ public class GameFragment extends Fragment {
         generateOneLevel();
         gameInProgress=true;
 
+    }
+
+    private void updateHighScore(){
+        int previousHighScore=MyPreferenceManager.getInstance(getActivity()).getHighScore();
+
+        Log.d("Tag","previousHighScore"+previousHighScore);
+        if(previousHighScore < pointsInt){
+            MyPreferenceManager.getInstance(getActivity()).putHighScore(pointsInt);
+        }
     }
 
     @Override

@@ -16,13 +16,14 @@
         app:layout_constraintRight_toRightOf="parent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"></Button>
-    <TextView
+    <Button
+        android:id="@+id/show_best_score"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="test text view"
+        android:text="@string/show_best_score"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/start_game"></TextView>
+        app:layout_constraintTop_toBottomOf="@id/start_game"></Button>
 
 
     <FrameLayout

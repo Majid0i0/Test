@@ -13,6 +13,7 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
 
     Button startGame;
+    Button showBestScore;
 
 
     @Override
@@ -26,8 +27,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void findViews(){
         startGame=(Button) findViewById(R.id.start_game);
+        showBestScore=(Button) findViewById(R.id.show_best_score);
     }
     private void configure(){
+
+
 
         startGame.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,6 +43,16 @@ public class MainActivity extends AppCompatActivity {
                         .commit();
             }
         });
-    }
 
+        showBestScore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                BestScoreFragment bestScoreFragment=new BestScoreFragment();
+                getSupportFragmentManager().beginTransaction()
+                        .add(R.id.fragment_container,bestScoreFragment)
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
+    }
 }

@@ -5,4 +5,5 @@
     <string name="game_finished_text">Game Finished!</string>
     <string name="remaining_time">Remaining time: %d seconds</string>
     <string name="start_game">start game</string>
+    <string name="show_best_score">show best score</string>
 </resources>
