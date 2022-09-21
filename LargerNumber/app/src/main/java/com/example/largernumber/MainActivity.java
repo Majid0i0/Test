@@ -12,6 +12,7 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
+    Button startGame;
 
 
     @Override
@@ -19,11 +20,25 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        GameFragment gameFragment=new GameFragment();
-        getSupportFragmentManager().beginTransaction()
-                .add(R.id.fragment_container,gameFragment)
-                .addToBackStack(null)
-                .commit();
+        findViews();
+        configure();
+    }
+
+    private void findViews(){
+        startGame=(Button) findViewById(R.id.start_game);
+    }
+    private void configure(){
+
+        startGame.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                GameFragment gameFragment=new GameFragment();
+                getSupportFragmentManager().beginTransaction()
+                        .add(R.id.fragment_container,gameFragment)
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
     }
 
 }
