@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/global_background"
+    android:clickable="true"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/user_point"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="your points 15 out of 17"
+        android:padding="10dp"
+        android:gravity="center_horizontal"
+        android:textSize="20sp"></TextView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/game_level"
+        android:text="round 1 of 20"
+        android:padding="10dp"
+        android:gravity="center_horizontal"
+        android:textSize="16sp"></TextView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/left_number"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="#9df9ef"
+            android:text="13"
+            android:textSize="18sp"
+            ></Button>
+
+        <Button
+            android:id="@+id/right_number"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="#9df9ef"
+            android:text="13"
+            android:textSize="18sp"></Button>
+    </LinearLayout>
+    <Button
+        android:id="@+id/equal_button"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_height="60dp"
+        android:layout_margin="5dp"
+        android:background="#9df9ef"
+        android:text="equal"
+        android:textSize="18sp"></Button>
+
+
+</LinearLayout>
